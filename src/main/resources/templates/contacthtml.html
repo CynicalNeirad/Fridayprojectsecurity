@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/help.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Richard's Resume Service</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/summary">Summary</a></li>
+            <li><a href="/contact">Contact Info</a></li>
+            <li><a href="/education">Education</a></li>
+            <li><a href="/skills">Skills</a></li>
+            <li><a href="/experience">Experience</a></li>
+            <li><a href="/references">References</a></li>  //Make viable only to applicant
+            <li><a href="/view"></a>View</li> //Two item list with resume and cover letter
+        </ul>
+    </div>
+</nav>
+
+<form action = "#"
+      th:action="@{/processContact}"
+      th:object="${contact}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Name:<input type="text" th:field= "*{name}" />
+    <span th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"></span><br/>
+    Email :<input type="text" th:field= "*{email}" />
+    <span th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"></span><br/>
+    Image :<input type="text" th:field= "*{resumeImg}" />
+    <span th:if="${#fields.hasErrors('resumeImg')}"
+          th:errors="*{resumeImg}"></span><br/>
+
+    <br />
+    <input type="submit" values="Submit" />
+</form>
+</body>
+</html>
