@@ -8,10 +8,10 @@
 
 <form action = "#"
       th:action="@{/processcoverletter}"
-      th:object="${coverletter}"
+      th:object="${resume}"
       method="post">
     <input type="hidden" th:field="*{id}" />
-    Summary:<input type="text" th:field= "*{coverletter}" />
+    Cover Letter:<input type="text" th:field= "*{coverletter}" />
     <span th:if="${#fields.hasErrors('coverletter')}"
           th:errors="*{coverletter}"></span><br/>
 

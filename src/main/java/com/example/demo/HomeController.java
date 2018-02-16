@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -124,15 +125,6 @@ public class HomeController {
         return "coverlettereditor";
     }
 
-    @PostMapping("/processLetter")
-    public String processletter(@Valid Resume resume, BindingResult result) {
-        if (result.hasErrors()) {
-            return "coverlettereditor";
-        }
-        resumeStore.save(resume);
-        return "/coverletter";
-    }
-
     @GetMapping("/login")
     public String loginpages(Model model) {
         return "login";
@@ -166,13 +158,15 @@ public class HomeController {
         resumeStore.save(resume);
         return "redirect:/references";}
 
+
     @GetMapping("/addcoverletter")
     public String addcoverletter(Model model){
-        model.addAttribute("coverletter", new Resume());
+        model.addAttribute("resume", new Resume());
         return "coverletteradded";}
 
+
     @PostMapping("/processcoverletter")
-    public String processcoverletter(@Valid Resume resume, BindingResult result) {
+    public String processcoverletter(@Valid @ModelAttribute("resume") Resume resume, BindingResult result) {
         if (result.hasErrors()) {
             return "coverletteradded";
         }

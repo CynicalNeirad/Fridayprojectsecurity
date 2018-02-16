@@ -11,7 +11,7 @@
       th:object="${reference}"
       method="post">
     <input type="hidden" th:field="*{id}" />
-    Summary:<input type="text" th:field= "*{references}" />
+    Reference:<input type="text" th:field= "*{references}" />
     <span th:if="${#fields.hasErrors('references')}"
           th:errors="*{references}"></span><br/>
 

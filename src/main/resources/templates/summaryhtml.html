@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8" />
     <title>Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/css.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-<br/>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Richard's Resume Service</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><img src="../css/images/8ea915c2950a58cad7e184b94d6d4bac--line-art-design-pet-logo.jpg" height="100" width="100"/></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/summary">Summary</a></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/contact">Contact Info</a></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/education">Education</a></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/skills">Skills</a></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/experience">Experience</a></li>
+            <li sec:authorize="hasAuthority('ADMIN')"><a href="/references">References</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="/resume">Resume</a>
+                        <a href="/coverletter">Cover Letter</a>
+                    </div>
+                </div> </li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
 
 <table>
     <tr th:each="summary : ${summarys}">
