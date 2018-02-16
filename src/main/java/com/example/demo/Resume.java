@@ -51,12 +51,13 @@ public class Resume {
         this.email = email;
     }
 
+
     public String getCoverletter() {
         return coverletter;
     }
 
     public void setCoverletter(String coverletter) {
-        coverletter = coverletter;
+        this.coverletter = coverletter;
     }
 
     public String getSummary() {

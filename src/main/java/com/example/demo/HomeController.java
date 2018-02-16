@@ -119,12 +119,6 @@ public class HomeController {
         return "/contactAdded";
     }
 
-    @GetMapping("/editLetter")
-    public String addCoverLetter(Model model) {
-        model.addAttribute("coverletter", new Resume());
-        return "coverlettereditor";
-    }
-
     @GetMapping("/login")
     public String loginpages(Model model) {
         return "login";
