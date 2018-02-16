@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resume</title>
+</head>
+<body>
+<br/>
+
+<table>
+    <tr th:each="reference : ${references}">
+        <td th:text="${reference.references}"></td>
+    </tr>
+
+    <tr> <a sec:authorize="hasAuthority('ADMIN')" href="/addreference">Add a new Reference</a> </tr>
+
+</table>
+
+
+</body>
+</html>

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Resume</title>
 </head>
 <body>
+<br/>
+
+<table>
+    <tr th:each="summary : ${summarys}">
+        <td th:text="${summary.summary}"></td>
+    </tr>
+
+    <tr> <a sec:authorize="hasAuthority('ADMIN')" href="/addasummary">Create a new Summary</a> </tr>
+
+</table>
+
 
 </body>
 </html>

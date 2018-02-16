@@ -2,45 +2,20 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/help.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Resume</title>
 </head>
 <body>
+<br/>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Richard's Resume Service</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/summary">Summary</a></li>
-            <li><a href="/contact">Contact Info</a></li>
-            <li><a href="/education">Education</a></li>
-            <li><a href="/skills">Skills</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="/references">References</a></li>  //Make viable only to applicant
-            <li><a href="/view"></a>View</li> //Two item list with resume and cover letter
-        </ul>
-    </div>
-</nav>
+<table>
+    <tr th:each="coverletter : ${coverletters}">
+        <td th:text="${coverletter.coverletter}"></td>
+    </tr>
+
+    <tr> <a sec:authorize="hasAuthority('ADMIN')" href="/addcoverletter">Add a new Cover Letter</a> </tr>
+
+</table>
 
 
-<form action = "#"
-      th:action="@{/processCover}"
-      th:object="${coverletter}"
-      method="post">
-    <th><a th:href="@{/editLetter}">Edit Cover Letter</a> </th>
-    <input type="hidden" th:field="*{id}" />
-    Cover Letter:<input type="text" th:field= "*{coverLetter}" />
-    <span th:if="${#fields.hasErrors('coverLetter')}"
-          th:errors="*{coverLetter}"></span><br/>
-
-    <br />
-    <input type="submit" values="Submit" />
-</form>
 </body>
 </html>

@@ -15,8 +15,9 @@ public class Resume {
     private String resumeImg;
     private String name;
     private String email;
-    private String coverLetter;
+    private String coverletter;
     private String summary;
+    private String references;
 
     public long getId() {
         return id;
@@ -50,12 +51,12 @@ public class Resume {
         this.email = email;
     }
 
-    public String getCoverLetter() {
-        return coverLetter;
+    public String getCoverletter() {
+        return coverletter;
     }
 
-    public void setCoverLetter(String coverLetter) {
-        coverLetter = coverLetter;
+    public void setCoverletter(String coverletter) {
+        coverletter = coverletter;
     }
 
     public String getSummary() {
@@ -64,5 +65,13 @@ public class Resume {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getReferences() {
+        return references;
+    }
+
+    public void setReferences(String references) {
+        this.references = references;
     }
 }

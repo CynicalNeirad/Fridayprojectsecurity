@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form action = "#"
+      th:action="@{/processcoverletter}"
+      th:object="${coverletter}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Summary:<input type="text" th:field= "*{coverletter}" />
+    <span th:if="${#fields.hasErrors('coverletter')}"
+          th:errors="*{coverletter}"></span><br/>
+
+    <br />
+    <input type="submit" values="Submit" />
+</form>
+</body>
+</html>

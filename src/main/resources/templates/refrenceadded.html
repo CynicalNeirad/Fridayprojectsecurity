@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form action = "#"
+      th:action="@{/processreference}"
+      th:object="${reference}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Summary:<input type="text" th:field= "*{references}" />
+    <span th:if="${#fields.hasErrors('references')}"
+          th:errors="*{references}"></span><br/>
+
+    <br />
+    <input type="submit" values="Submit" />
+</form>
+</body>
+</html>
